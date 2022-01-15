@@ -1,0 +1,17 @@
+#si on veut juste changer le message du commit :
+$ git commit --amend
+ 
+#si de plus on a des fichier à ajouter ou qui ont étét modifié, alors il faut les indexer et ensuit 
+utiliser git commit --amend : 
+$ git add <file> 
+$ git commit --amend 
+
+#si on a pas besoin de changer le message du commit : 
+$ git commit --ammend --no-edit 
+
+#pour ajouter un dépot distant, il faut copierr le lien du dépot et utiliser la commande : 
+$ git remote add <lien_vers_le_depot_distant>
+
+
+#pour créer une branche, il faut utiliser la commande : 
+$ git branch <nom_de_la_branche> 
