@@ -1,0 +1,60 @@
+# Partie 1 : essentiels : 
+- git init # initialiser le dépot git 
+- git add [file names] # ajout de fichiers à stager 
+- git log -p -n x # afficher les x derniers commits du dépot 
+- git log --oneline # afficher les commits, une ligne par commit pour le dépot 
+- git log -p -n x [fine_name] # affiche les modif apportées sur les x derniers commits pour le fichier 
+			      # [file_name]
+- git log --oneline -p [file_name] # une ligne par commit, on trace les modifs du fichier [file_name]
+
+# Partie 2: 
+
+-git checkout [commit_id] # revenir au commit défini par [commit_id] en mode visualisation 
+-git checkout [commit_id] [file_name] # remettre la version [commit_id] du fichier [file_name] 
+				      #(ça permet de revenir en arrière et les modif seront validées)
+-git revert [commit_id] # permet de défaire le commit [commit_id] sans revenir en arrière juste annuler
+		        # le commit. Ex : j'ai créé un fichier x dans le commit [commit_id], cela permet
+			# donc d'avoir un dépot qui revient sur ce commit càd un dépot sans le fichier x 
+ 
+- git revert [commit_id] [file_name] # défaire les modification du fichier liées à un commit 
+
+- git reset HEAD [file_name] # si j'ai stage le fichier [file_name] et que je ne veux plus qu'il soit
+ 			     # stagé. Cette commande permet d'enlever ce fichier du stach 
+			     # et il n'est plus stagé
+
+- git reset [commit_id] --hard # supprime DEFINITIVEMENT le dernier commit et reviens vers 
+			       # le commit précédent 
+
+- git reset [commit_id] # permet de supprimer tous les commit après le commit [commit_id]
+			# mais il laisse tous les fichiers à l'état avant de tapper cette commande.
+			# les fichiers ne sont pas stagés et donc pour le fait il faut mettre un coup de 
+			# git add . une fois qu'on a apporté toutes les modifs souhaitées avant de 
+			# commiter
+
+
+ # Partie 3:
+
+- git branch [nom de la branch] # crée une nouvelle branche avec le nom précisé 
+- git checkout [nom de branche] # permet de sauter d'une branche à l'autre 
+
+Je suis sur cette branche et je veux la fusionner avec la branche master : 
+- 1 : je me place sur la branche du rapatriment : git checkout master  
+- 2 : je merge la branche à master : git merge [nom de la branche]
+- 3 : si je veux supprimer cette branche : git branch -d [nom_de_la_branche]
+
+J'ai fait un commit mais je me suis rendu compte que je devais le modifier : 
+Je modifie mes fichier 
+je les stage 
+je fait git commit --ammend 
+je change le message du commit précédent ou je le laisse tel quel et je commit 
+Résultat : un seul commit qui contient les modification que j'ai oubliées 
+
+Je suis sur une branch, j'ai fait des modif je les ai commité : 
+1- j'envoie les modif de la branch sur master : git rebase master
+2 - je me place sur master : git checkout master 
+3 - je merge la branch à master : git merge ma_branch 
+
+Ainsi on obtient le fast-for-word : tous les commit de la branch vont s'alligner dans le master l'un
+derrière l'autre chronologiquement : càd les differents commit de ma branch seront directement
+intégrés dans le master ce qui est clean car y a pas de branchement 
+ENsuite je supprime ma branch  : git branch -d ma_branche
