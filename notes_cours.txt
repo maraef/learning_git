@@ -1,3 +1,4 @@
+
 #si on veut juste changer le message du commit :
 $ git commit --amend
  
@@ -15,3 +16,6 @@ $ git remote add <lien_vers_le_depot_distant>
 
 #pour créer une branche, il faut utiliser la commande : 
 $ git branch <nom_de_la_branche> 
+
+# pour se déplacer à la branche branche_test, après avoir créer cette branche on utilise la commande : 
+$ git branch branche_test
